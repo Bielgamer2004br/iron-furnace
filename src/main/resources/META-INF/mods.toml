@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[66,)"
+license="MIT"
+
+[[mods]]
+modId="ironfurnace"
+version="1.0.0"
+displayName="Iron Furnace"
+authors="Voce"
+description='''Uma fornalha de ferro que derrete itens e minerios mais rapido.'''
+
+[[dependencies.ironfurnace]]
+    modId="forge"
+    mandatory=true
+    versionRange="[66,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.ironfurnace]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[26.3,26.4)"
+    ordering="NONE"
+    side="BOTH"
