@@ -1,6 +1,5 @@
 package com.ironfurnace;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -14,21 +13,9 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-/**
- * Bloco da Fornalha de Ferro. Funciona igual à fornalha vanilla (mesma GUI,
- * mesmas receitas de smelting), mas executa o "tick" de cozimento várias vezes
- * por tick de jogo, o que a deixa mais rápida.
- */
 public class IronFurnaceBlock extends AbstractFurnaceBlock {
-    public static final MapCodec<IronFurnaceBlock> CODEC = simpleCodec(IronFurnaceBlock::new);
-
     public IronFurnaceBlock(Properties properties) {
         super(properties);
-    }
-
-    @Override
-    protected MapCodec<? extends AbstractFurnaceBlock> codec() {
-        return CODEC;
     }
 
     @Override
@@ -54,7 +41,6 @@ public class IronFurnaceBlock extends AbstractFurnaceBlock {
                 return;
             }
             for (int i = 0; i < IronFurnaceMod.SPEED_MULTIPLIER; i++) {
-                // Relê o estado a cada passada, pois o bloco troca entre aceso/apagado.
                 BlockState current = server.getBlockState(pos);
                 if (!current.is(IronFurnaceMod.IRON_FURNACE.get())) {
                     break;
