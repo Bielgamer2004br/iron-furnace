@@ -1,4 +1,5 @@
 package com.ironfurnace;
+import java.util.Set;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -55,7 +56,7 @@ public class IronFurnaceMod {
 
     public static final RegistryObject<BlockEntityType<IronFurnaceBlockEntity>> IRON_FURNACE_BE =
             BLOCK_ENTITIES.register("iron_furnace",
-                    () -> new BlockEntityType<>(IronFurnaceBlockEntity::new, IRON_FURNACE.get()));
+                    () -> new BlockEntityType<>(IronFurnaceBlockEntity::new, Set.of(IRON_FURNACE.get())));
 
     public IronFurnaceMod(FMLJavaModLoadingContext context) {
         BusGroup modBus = context.getModBusGroup();
